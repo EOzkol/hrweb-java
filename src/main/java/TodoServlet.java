@@ -18,10 +18,10 @@ public class TodoServlet extends HttpServlet {
     
     List<TodoItem> todoList = new ArrayList<TodoItem>();
     TodoList app = null;
-    
+  
     // Establish connection to database and parse request parameters
     try {
-      app = new TodoList("tmp_todo", "cd89a9", "mysql", "localhost", 3306, "tmp_todo");
+      app = new TodoList("tmp_todo", "password", "mysql", "localhost", 3306, "tmp_todo");
       String newitem = request.getParameter("additem");
       String deleteitem = request.getParameter("deleteitem");
       if (newitem != null) {
