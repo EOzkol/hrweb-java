@@ -1,3 +1,4 @@
+
 // see https://dzone.com/refcardz/continuous-delivery-with-jenkins-workflow for tutorial
 // see https://documentation.cloudbees.com/docs/cookbook/_pipeline_dsl_keywords.html for dsl reference
 // This Jenkinsfile should simulate a minimal Jenkins pipeline and can serve as a starting point.
@@ -7,7 +8,7 @@ node {
    stage 'checkout'
 
    // Get some code from a GitHub repository
-   git url: 'https://github.com/ozkolonur/hrweb-java/Jenkinsfile'
+   git url: 'https://github.com/ozkolonur/hrweb-java'
    sh 'git clean -fdx; sleep 4;'
 
    // Get the maven tool.
