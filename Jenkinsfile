@@ -1,32 +1,22 @@
-
-// see https://dzone.com/refcardz/continuous-delivery-with-jenkins-workflow for tutorial
-// see https://documentation.cloudbees.com/docs/cookbook/_pipeline_dsl_keywords.html for dsl reference
-// This Jenkinsfile should simulate a minimal Jenkins pipeline and can serve as a starting point.
-// NOTE: sleep commands are solelely inserted for the purpose of simulating long running tasks when you run the pipeline
-node {
-   // Mark the code checkout 'stage'....
+node 
    stage 'checkout'
 
-   // Get some code from a GitHub repository
+   // Checkout code
    git url: 'https://github.com/ozkolonur/hrweb-java'
-   sh 'git clean -fdx; sleep 4;'
 
-   // Get the maven tool.
-   // ** NOTE: This 'mvn' maven tool must be configured
-   // **       in the global configuration.
+   // Get the maven
    def mvnHome = tool 'mvn'
 
    stage 'build'
-   // set the version of the build artifact to the Jenkins BUILD_NUMBER so you can
-   // map artifacts to Jenkins builds
+   // get Maven
    sh "${mvnHome}/bin/mvn versions:set -DnewVersion=${env.BUILD_NUMBER}"
    sh "${mvnHome}/bin/mvn package"
 
    stage 'test'
    parallel 'test': {
-     sh "${mvnHome}/bin/mvn test; sleep 2;"
+     sh "echo testing"
    }, 'verify': {
-     sh "${mvnHome}/bin/mvn verify; sleep 3"
+     sh "echo verify"
    }
 
    stage 'archive'
