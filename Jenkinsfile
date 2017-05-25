@@ -1,4 +1,4 @@
-node 
+node {
    stage 'checkout'
 
    // Checkout code
@@ -13,11 +13,7 @@ node
    sh "${mvnHome}/bin/mvn package"
 
    stage 'test'
-   parallel 'test': {
-     sh "echo testing"
-   }, 'verify': {
-     sh "echo verify"
-   }
+   sh "echo testing"
 
    stage 'archive'
    archive 'target/*.jar'
