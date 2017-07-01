@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+
 public class VersionServlet extends HttpServlet {
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -17,7 +18,7 @@ public class VersionServlet extends HttpServlet {
     // Establish print writer to formulate response
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
-
+    
     try {
         ip = InetAddress.getLocalHost();
         out.println("server_ip:" + ip.getHostAddress() + "</br>");
