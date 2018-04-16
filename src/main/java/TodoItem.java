@@ -3,19 +3,19 @@
 public class TodoItem {
 
   private int id;
-  private String item;
+  private String fullName;
   
   public TodoItem(int id, String item) {
     this.id = id;
-    this.item = item;
+    this.fullName = item;
   }
 
   public String getItem() {
-    return item;
+    return fullName;
   }
 
   public void setItem(String item) {
-    this.item = item;
+    this.fullName = item;
   }
 
   public int getId() {

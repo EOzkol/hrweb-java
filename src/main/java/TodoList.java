@@ -23,8 +23,8 @@ public class TodoList {
 
   private void createDatabase() throws SQLException {
     //stmt.execute("drop database if exists todo");
-    stmt.execute("create database if not exists tmp_todo");
-    stmt.execute("use tmp_todo");
+    stmt.execute("create database if not exists app_hrweb");
+    stmt.execute("use app_hrweb");
     stmt.execute("create table if not exists todoList (id int not null auto_increment, item varchar(255) not null, primary key(id))");
   }
 

@@ -12,7 +12,13 @@ public class TestTodo {
     List<String> list = new ArrayList<String>();
     List<TodoItem> todoList = new ArrayList<TodoItem>();
 
-    TodoList app = new TodoList("root", "root", "mysql", "localhost", 3306, "");
+    String dbUser = System.getenv("HRWEB_DB_USER");
+    String dbPass = System.getenv("HRWEB_DB_PASS");
+    String dbHost = System.getenv("HRWEB_DB_HOST");
+    String dbName = System.getenv("HRWEB_DB_NAME");
+    String dbPort = System.getenv("HRWEB_DB_PORT");    
+	    
+    TodoList app = new TodoList(dbUser, dbPass, "mysql", dbHost, Integer.parseInt(dbPort), dbName);
 
     list.add("Redesign toolbar");
     list.add("Implement all pages of site");
