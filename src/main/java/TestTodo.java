@@ -14,7 +14,7 @@ public class TestTodo {
 
     TodoList app = new TodoList("root", "root", "mysql", "localhost", 3306, "");
 
-    list.add("Redesign toolbar");
+    list.add("Redesign toolba");
     list.add("Implement all pages of site");
     list.add("Buy small travel toothpaste and contact lens solution");
     list.add("Feed the dog");
